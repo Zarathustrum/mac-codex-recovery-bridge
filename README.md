@@ -90,3 +90,7 @@ git diff --check
 Developed during an Apple silicon macOS Recovery investigation of a boot/login hang. The worker and command bridge were used in Recovery; the automated suite runs on normal macOS. Check the mounted Data-volume bootstrap path on each target Mac.
 
 See [AGENTS.md](AGENTS.md) for the repository map and validation commands.
+
+## License
+
+[MIT](LICENSE), copyright 2026 Tom Leonard.
