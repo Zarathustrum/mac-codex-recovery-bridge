@@ -1,5 +1,15 @@
 # mac-codex-recovery-bridge (mcrb)
 
+## What is this for?
+
+mcrb lets Codex on a working Mac run shell commands on another Mac that is booted into macOS Recovery. You stay in your normal Codex session while it examines the troubled Mac and receives command output and files back.
+
+Use it when a Mac cannot finish booting or logging in, and you need to investigate from Recovery: inspect boot logs, examine mounted volumes, check filesystem state, or carry out a repair you have agreed on. It saves you repeatedly typing commands into Recovery's Terminal and copying their results back to Codex. You need a second working Mac, network connectivity between them, and access to Recovery's Terminal.
+
+It grew out of a real boot-hang investigation where normal startup and Safe Mode both failed. Recovery provided access to the installed system; this bridge let Codex investigate it from the working Mac. You choose the investigation and repairs; mcrb carries the commands and preserves their results.
+
+## How it works
+
 Codex runs on a working Mac. A Python HTTP server holds commands and results; a shell worker in the other Mac's Recovery environment polls it with `curl`. Recovery needs no Python, SSH server or installed agent. The working Mac needs Python 3.9+; the server uses only its standard library.
 
 Both processes are started manually for one investigation. The bridge is unauthenticated and intended for your trusted network; stop it when finished. There is no installed service or automatic repair.
